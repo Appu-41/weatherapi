@@ -17,19 +17,20 @@
             let city = document.getElementById("city").value;
             let apiKey = "aee02af931dd459290e142226260104";
 
-            let url = `http://api.weatherapi.com/v1/current.json?q=${city}&appid=${apiKey}&units=metric`;
+            let url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`;
 
             fetch(url)
             .then(response => response.json())
             .then(data => {
-                if(data.cod == 200){
-                    let temp = data.main.temp;
-                    let weather = data.weather[0].description;
+                if(data.error){
+                    document.getElementById("result").innerHTML = "❌ City not found";
+                } else {
+                    let temp = data.current.temp_c;
+                    let condition = data.current.condition.text;
+                    let location = data.location.name;
 
                     document.getElementById("result").innerHTML =
-                        `🌍 City: ${city} <br> 🌡 Temp: ${temp}°C <br> ☁ Weather: ${weather}`;
-                } else {
-                    document.getElementById("result").innerHTML = "❌ City not found";
+                        `🌍 City: ${location} <br> 🌡 Temp: ${temp}°C <br> ☁ Weather: ${condition}`;
                 }
             })
             .catch(error => {
