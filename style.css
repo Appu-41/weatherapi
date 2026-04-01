@@ -8,22 +8,25 @@
 /* Body */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #74ebd5, #9face6);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(to bottom, #4facfe, #00f2fe);
+    min-height: 100vh;
 }
 
 /* Container */
 .container {
-    width: 90%;
-    max-width: 350px;
-    padding: 25px;
-    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Card */
+.card {
     background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    text-align: center;
 }
 
 /* Heading */
@@ -34,9 +37,10 @@ h2 {
 /* Input */
 input {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #f1f1f1;
     margin-bottom: 15px;
     font-size: 16px;
 }
@@ -44,18 +48,13 @@ input {
 /* Button */
 button {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border: none;
     background: #4facfe;
     color: white;
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #00c6ff;
 }
 
 /* Result */
@@ -64,19 +63,14 @@ button:hover {
     font-size: 16px;
 }
 
-/* 📱 Mobile Optimization */
+/* 📱 Mobile feel (important) */
 @media (max-width: 480px) {
-    .container {
-        padding: 20px;
-        border-radius: 12px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    input, button {
-        font-size: 14px;
+    body {
         padding: 10px;
+    }
+
+    .card {
+        border-radius: 15px;
+        padding: 20px;
     }
 }

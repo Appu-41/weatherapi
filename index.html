@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body style="font-family: Arial; text-align:center; margin-top:50px;">
+<div class="container">
+    <div class="card">
+        <h2>🌤 Weather App</h2>
 
-    <h2>🌤 Weather App</h2>
+        <input type="text" id="city" placeholder="Enter city name">
 
-    <input type="text" id="city" placeholder="Enter city name">
-    <br><br><br>
-    <button onclick="getWeather()">Check Weather</button>
+        <button onclick="getWeather()">Check Weather</button>
 
-    <h3 id="result"></h3>
+        <h3 id="result"></h3>
+    </div>
+</div>
 
     <script>
         function getWeather() {
