@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+</head>
+<body style="font-family: Arial; text-align:center; margin-top:50px;">
+
+    <h2>🌤 Weather App</h2>
+
+    <input type="text" id="city" placeholder="Enter city name">
+    <button onclick="getWeather()">Check Weather</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function getWeather() {
+            let city = document.getElementById("city").value;
+            let apiKey = "aee02af931dd459290e142226260104";
+
+            let url = `http://api.weatherapi.com/v1/current.json?q=${city}&appid=${apiKey}&units=metric`;
+
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if(data.cod == 200){
+                    let temp = data.main.temp;
+                    let weather = data.weather[0].description;
+
+                    document.getElementById("result").innerHTML =
+                        `🌍 City: ${city} <br> 🌡 Temp: ${temp}°C <br> ☁ Weather: ${weather}`;
+                } else {
+                    document.getElementById("result").innerHTML = "❌ City not found";
+                }
+            })
+            .catch(error => {
+                document.getElementById("result").innerHTML = "Error fetching data";
+            });
+        }
+    </script>
+
+</body>
+</html>
